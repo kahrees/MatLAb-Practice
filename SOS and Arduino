@@ -1,0 +1,37 @@
+%Matlab code to use Arduino board and LEDs to signal S.O.S. in Morse Code 
+clear;clc;format compact;
+MyArduino=arduino;
+for n = 1:1:9;
+   
+    disp(n) 
+    
+    if n < 4 || n > 6
+        MyArduino.writeDigitalPin('D2',1)
+        MyArduino.writeDigitalPin('D12',1) 
+        
+        pause(0.1)
+        
+        MyArduino.writeDigitalPin('D2',0)
+        MyArduino.writeDigitalPin('D12',0)
+        
+        pause(0.1)
+        
+    else 
+        
+         pause(0.4)
+       
+        MyArduino.writeDigitalPin('D2',1)
+        MyArduino.writeDigitalPin('D12',1) 
+        
+        pause(0.4)
+        
+        MyArduino.writeDigitalPin('D2',0)
+        MyArduino.writeDigitalPin('D12',0)
+        
+        pause(0.4)
+        
+        
+    end
+              
+  
+end
